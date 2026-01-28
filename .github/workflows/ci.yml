@@ -1,0 +1,26 @@
+name: CI Validation
+on: [pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Validate project
+        run: node validate.js
+          
+      - name: Install frontend
+        run: |
+          cd frontend
+          npm ci
+          
+      - name: Install backend
+        run: |
+          cd backend
+          npm ci
