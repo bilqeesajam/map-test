@@ -1,4 +1,4 @@
-name: Deploy to Vercel & Render
+name: Auto-Deploy to Vercel & Render
 on:
   push:
     branches: [main]
@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Validate first
+      - name: Validate before deployment
         run: node validate.js
         
       - name: Deploy to Render
