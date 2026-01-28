@@ -24,6 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm ci
+          
       - name: Simulate Vercel deployment
         run: |
           echo "🚀 Simulating Vercel deployment..."
